@@ -65,14 +65,12 @@ print str(overallError)
 print str(testComparison)
 
 # Plot of network's error after training
-# TODO figure out what exactly I need to plot// what makes the most sense? error as x or error as y?
 plt.plot([1, 2, 3, 4], overallError)
 plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * 10 layers")
 plt.ylabel("Error After Training")
 plt.show()
 
 # Plot of network's test error rate matched to actual dataset in terms of mean squared error
-# TODO figure out what exactly I need to plot
 plt.plot([1, 2, 3, 4], testComparison)
 plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * 10 layers")
 plt.ylabel("MSE of Testing")
@@ -94,6 +92,3 @@ plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * 10 layers")
 plt.ylabel("Time spent testing in seconds")
 plt.show()
 
-# Build a network and then test to see if more training affects the error rate
-# TODO implement this
-# TODO plot error and whatnot on a graph
