@@ -4,7 +4,7 @@ __author__ = 'JoJo'
 from pybrain.tools.shortcuts import buildNetwork
 from pybrain.tools.datasets import mnist
 from pybrain.structure.modules import LSTMLayer
-from pybrain.supervised.trainers import BackpropTrainer
+from pybrain.supervised.trainers import BackpropTrainerSligh
 from pybrain.tools.validation import ModuleValidator
 
 # Import statement to keep track of time elapsed
@@ -15,11 +15,12 @@ import matplotlib.pyplot as plt
 path = "/Users/JoJo/Desktop/Macalester-Sophomore/COMP221/Final/MNIST"
 (train, test) = mnist.makeMnistDataSets(path)
 
-# Build the networks with increasing complexity in layers in order to test if number of layers affects error rate
+# Build the networks with increasing complexity in number of nodes in order to test if number of nodes affects error rate
 # Trainers are created for each network and each network is trained once
-# Then, I test the network against the actual dataset and get the mean squared error
+# Then, I test the network against the actual dataset and get the mean squared error and see the connection between nodes and MSE
 inputNode = 28*28
 baselineNumberOfNodes = 10
+
 numOutputNodes = 10
 LSTMNetworkNumber = 1
 
@@ -66,29 +67,28 @@ print str(testComparison)
 
 # Plot of network's error after training
 plt.plot([1, 2, 3, 4], overallError)
-plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * 10 layers")
+plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * " + str(baselineNumberOfNodes) + " layers")
 plt.ylabel("Error After Training")
 plt.show()
 
 # Plot of network's test error rate matched to actual dataset in terms of mean squared error
 plt.plot([1, 2, 3, 4], testComparison)
-plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * 10 layers")
+plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * " + str(baselineNumberOfNodes) + " layers")
 plt.ylabel("MSE of Testing")
 plt.show()
 
 # Maybe plot the time it takes to either train and or test the networks?
 plt.plot([1, 2, 3, 4], timeSpentBuilding, "bo")
-plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * 10 layers")
+plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * " + str(baselineNumberOfNodes) + " layers")
 plt.ylabel("Time spent building in seconds")
 plt.show()
 
 plt.plot([1, 2, 3, 4], timeSpentTraining, "bo")
-plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * 10 layers")
+plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * " + str(baselineNumberOfNodes) + " layers")
 plt.ylabel("Time spent training in seconds")
 plt.show()
 
 plt.plot([1, 2, 3, 4], timeSpentTesting, "bo")
-plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * 10 layers")
+plt.xlabel("LSTM Network w/ 1, 2, 5, 10 * " + str(baselineNumberOfNodes) + " layers")
 plt.ylabel("Time spent testing in seconds")
 plt.show()
-
