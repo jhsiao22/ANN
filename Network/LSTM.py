@@ -4,7 +4,7 @@ __author__ = 'JoJo'
 from pybrain.tools.shortcuts import buildNetwork
 from pybrain.tools.datasets import mnist
 from pybrain.structure.modules import LSTMLayer
-from pybrain.supervised.trainers import BackpropTrainerSligh
+from pybrain.supervised.trainers import BackpropTrainer
 from pybrain.tools.validation import ModuleValidator
 
 # Import statement to keep track of time elapsed
